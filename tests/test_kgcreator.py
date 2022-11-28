@@ -1,3 +1,7 @@
+import spacy
+from os import system
+system("python -m spacy download en_core_web_sm")
+
 from click.testing import CliRunner
 from kgcreator.cli import cli
 

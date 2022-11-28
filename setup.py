@@ -31,7 +31,7 @@ setup(
         [console_scripts]
         kgcreator=kgcreator.cli:cli
     """,
-    install_requires=["click"],
+    install_requires=["click", "spacy"],
     extras_require={
         "test": ["pytest"]
     },
