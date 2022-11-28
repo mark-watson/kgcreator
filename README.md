@@ -7,7 +7,7 @@
 
 ### Knowledge Graph Creator: converts text to RDF triples
 
-The Knowledge Graph Creator (kgcreator) is a tool for automating the generation of data for Knowledge Graphs from raw text data read from an input directory path.
+The Knowledge Graph Creator (kgcreator) is a tool for automating the generation of RDF data for Knowledge Graphs from raw text data read from an input directory path.
 
 The Knowledge Graph Creator creates an output file containing RDF triples suitable for loading into any linked data/semantic web data store.
 
@@ -20,6 +20,8 @@ This Python command line utility is one of the example programs in my book
 Install this tool using `pip`:
 
     pip install kgcreator
+    pip install spacy
+    python -m spacy download en_core_web_sm
 
 ## Usage
 
