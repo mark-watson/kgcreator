@@ -5,7 +5,7 @@
 [![Tests](https://github.com/mark-watson/kgcreator/workflows/Test/badge.svg)](https://github.com/mark-watson/kgcreator/actions?query=workflow%3ATest)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/mark-watson/kgcreator/blob/master/LICENSE)
 
-### Knowledge Graph Creator: converts text to RDF triples
+### Knowledge Graph Creator: converts text to RDF triples and Neo4J graph database data
 
 The Knowledge Graph Creator (kgcreator) is a tool for automating the generation of RDF data for Knowledge Graphs from raw text data read from an input directory path.
 
@@ -49,3 +49,14 @@ Now install the dependencies and test dependencies:
 To run the tests:
 
     pytest
+
+## Notes on generating Neo4J graph data
+
+Start by identifying:
+
+- Names of entities (node labels).
+- Names of relationships.
+- Names of properties for nodes and relationships.
+- Constraints to be defined.
+- Indexes required.
+- The most important queries?

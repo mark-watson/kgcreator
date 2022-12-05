@@ -9,4 +9,4 @@ venv
 .DS_Store
 *~
 *.rdf
-
+.idea

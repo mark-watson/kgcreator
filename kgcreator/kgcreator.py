@@ -62,7 +62,8 @@ def process_file(txt_path, meta_path, frdf):
     entities = find_entities_in_text(txt)
     entities = [[modify_entity_names(e), t] for [e, t] in entities if t in
         ['NORP', 'ORG', 'PRODUCT', 'GPE', 'PERSON', 'LOC']]
-    return data2Rdf(meta, entities, frdf)
+    data2Rdf(meta, entities, frdf)
+    data2Cypher(mets, entities, )
 
 
 
