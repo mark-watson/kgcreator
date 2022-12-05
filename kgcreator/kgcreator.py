@@ -19,7 +19,9 @@ def data2Rdf(meta_data, entities, fout):
             a_literal = v2umap[value]
         fout.write('<' + meta_data + '>\t' + e2umap[abbreviation] + '\t' +
             a_literal + ' .\n') if abbreviation in e2umap else None
-
+def data2Cypher(meta_data, entities, fout):
+    " TBD: implement "
+    None
 
 e2umap = {'ORG': '<https://schema.org/Organization>', 'LOC':
     '<https://schema.org/location>', 'GPE': '<https://schema.org/location>',
@@ -35,19 +37,20 @@ v2umap = {'IBM': '<http://dbpedia.org/page/IBM>', 'The Wall Street Journal':
     'Microsoft': '<http://dbpedia.org/page/Microsoft>'}
 
 
-def process_directory(directory_name, output_rdf):
+def process_directory(directory_name, output_rdf, output_neo4j):
     with open(output_rdf, 'w') as frdf:
-        with scandir(directory_name) as entries:
-            for entry in entries:
-                [_, file_extension] = splitext(entry.name)
-                if file_extension == '.txt':
-                    check_file_name = entry.path[0:-4:None] + '.meta'
-                    if exists(check_file_name):
-                        process_file(entry.path, check_file_name, frdf)
-                    else:
-                        print('Warning: no .meta file for', entry.path, 'in directory', directory_name)
+        with open(output_neo4j, 'w') as fneo4j:
+            with scandir(directory_name) as entries:
+                for entry in entries:
+                    [_, file_extension] = splitext(entry.name)
+                    if file_extension == '.txt':
+                        check_file_name = entry.path[0:-4:None] + '.meta'
+                        if exists(check_file_name):
+                            process_file(entry.path, check_file_name, frdf, fneo4j)
+                        else:
+                            print('Warning: no .meta file for', entry.path, 'in directory', directory_name)
 
-def process_file(txt_path, meta_path, frdf):
+def process_file(txt_path, meta_path, frdf, fneo4j):
 
     def read_data(text_path, meta_path):
         with open(text_path) as f:
@@ -63,7 +66,7 @@ def process_file(txt_path, meta_path, frdf):
     entities = [[modify_entity_names(e), t] for [e, t] in entities if t in
         ['NORP', 'ORG', 'PRODUCT', 'GPE', 'PERSON', 'LOC']]
     data2Rdf(meta, entities, frdf)
-    data2Cypher(mets, entities, )
+    data2Cypher(mets, entities, fneo4j)
 
 
 
