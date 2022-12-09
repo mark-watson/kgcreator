@@ -46,7 +46,7 @@ def data2Cypher(meta_data, entities, fout):
 
         fout.write('CREATE (' + name.replace(" ", '_') + ')-[:Category]->(' + e2umap[atype] + '))\n')
         LINK_TYPE = "TBD_link_type"
-        fout.write('CREATE (' + meta_print_name + ')-[:' + LINK_TYPE + ')=>(' + name.replace(" ", '_') + ')\n')
+        fout.write('CREATE (' + meta_print_name + ')-[:' + e2umap[atype] + ')->(' + name.replace(" ", '_') + ')\n')
 
 e2umap = {'ORG': '<https://schema.org/Organization>',
           'LOC': '<https://schema.org/location>',
@@ -95,5 +95,5 @@ def process_file(txt_path, meta_path, frdf, fneo4j):
     data2Rdf(meta, entities, frdf)
     data2Cypher(meta, entities, fneo4j)
 
-process_directory('../test_data', 'out.rdf', 'out.cypher')
+# process_directory('../test_data', 'out.rdf', 'out.cypher')
 

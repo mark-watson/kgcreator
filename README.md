@@ -5,7 +5,7 @@
 [![Tests](https://github.com/mark-watson/kgcreator/workflows/Test/badge.svg)](https://github.com/mark-watson/kgcreator/actions?query=workflow%3ATest)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/mark-watson/kgcreator/blob/master/LICENSE)
 
-### Knowledge Graph Creator: converts text to RDF triples and Neo4J graph database data
+### Knowledge Graph Creator: converts text to RDF triples and Neo4J graph and Memgraph database data
 
 The Knowledge Graph Creator (kgcreator) is a tool for automating the generation of RDF data for Knowledge Graphs from raw text data read from an input directory path.
 
