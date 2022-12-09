@@ -95,5 +95,6 @@ def process_file(txt_path, meta_path, frdf, fneo4j):
     data2Rdf(meta, entities, frdf)
     data2Cypher(meta, entities, fneo4j)
 
+
 # process_directory('../test_data', 'out.rdf', 'out.cypher')
 
