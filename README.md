@@ -28,7 +28,7 @@ Install this tool using `pip`:
 For help, run:
 
     kgcreator --help
-    kgcreator --inputdir=test_data --outputfile=out.rdf
+    kgcreator --inputdir=test_data --outputfile=out.rdf  --outputfileneo4j=out.cypher
 
 You can also use:
 
