@@ -27,12 +27,10 @@ def data2Rdf(meta_data, entities, fout):
             a_literal = v2umap[value]
         fout.write('<' + meta_data + '>\t' + e2umap[abbreviation] + '\t' +
             a_literal + ' .\n') if abbreviation in e2umap else None
+
+        
 def data2Cypher(meta_data, entities, fout):
     " TBD: implement "
-    print("** meta_data:")
-    pprint(meta_data)
-    print("** entities:")
-    pprint(entities)
     SUMMARY = "To Be Done"
     for [name, atype] in entities:
         if atype in e2umap:
